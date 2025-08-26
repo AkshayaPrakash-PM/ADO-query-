@@ -1,6 +1,5 @@
 import express from "express";
 import cors from "cors";
-import { json } from "body-parser";
 import dotenv from "dotenv";
 import {
   getAreas,
@@ -16,7 +15,7 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
-app.use(json({ limit: "2mb" }));
+app.use(express.json({ limit: "2mb" }));
 
 app.get("/healthz", (_req, res) => res.send({ ok: true }));
 
